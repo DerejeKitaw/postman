@@ -63,6 +63,67 @@ https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Park
 ![postman](./note/DOC/postman_38.png)
 ![postman](./note/DOC/postman_39.png)
 
+### Writing a test in postman
+![postman](./note/DOC/postman_39.png)
+```js
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+```
+![postman](./note/DOC/postman_40.png)
+![postman](./note/DOC/postman_41.png)
+![postman](./note/DOC/postman_42.png)
+
+### More test on postman
+```js
+pm.test("Nmae of the test", function to be evaluated to true or false;)
+});
+```
+```js
+pm.test("Response includes results", function () {
+    pm.expect(pm.response.json()).to.include.keys("results");
+});
+```
+![postman](./note/DOC/postman_43.png)
+
+### What if you want to run the test over and over in the entire collection?
+![postman](./note/DOC/postman_44.png)
+![postman](./note/DOC/postman_45.png)
+
+### How do we save from googleapi the longtiude and latitude values to a variable so we can use it later.
+
+> Test
+```js
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+pm.test("Response includes results", function () {
+    pm.expect(pm.response.json()).to.include.keys("results");
+});
+
+let firstResponse = pm.response.json().results[0];
+let lat = firstResponse.geometry.location.lat;
+let lng = firstResponse.geometry.location.lng;
+
+pm.enviroment.set('lat', lat);
+pm.enviroment.set('lng', lng);
+````
+![postman](./note/DOC/postman_46.png)
+![postman](./note/DOC/postman_47.png)
+> Now check the enviromental variables
+![postman](./note/DOC/postman_48.png)
+![postman](./note/DOC/postman_49.png)
+> Now we have saved the variable in the enviroment variable.
+### How to use dynamicaly saved variable in another request.
+
+### [Go to google places api](https://developers.google.com/places/web-service/search)
+
+![postman](./note/DOC/postman_50.png)
+![postman](./note/DOC/postman_51.png)
+![postman](./note/DOC/postman_52.png)
+![postman](./note/DOC/postman_53.png)
+![postman](./note/DOC/postman_54.png)
+
 
 
 
