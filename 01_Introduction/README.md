@@ -76,7 +76,7 @@ pm.test("Status code is 200", function () {
 
 ### More test on postman
 ```js
-pm.test("Nmae of the test", function to be evaluated to true or false;)
+pm.test("Name of the test", function to be evaluated to true or false;)
 });
 ```
 ```js
